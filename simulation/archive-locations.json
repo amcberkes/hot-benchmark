@@ -1,0 +1,17 @@
+{
+  "repository": "amcberkes/thesis-ch3-ch5-data",
+  "revision": "f7af11fc23ff8ae92c964c59254eee6c4b018486",
+  "directories": [
+    "hot/network/archive/a/anaisb/HOT/factorial-assessment-endpoints-20261113",
+    "hot/network/archive/a/anaisb/HOT/factorial-assessment-native-20261113",
+    "hot/network/archive/a/anaisb/HOT/factorial-development-archive-pilot-20261113",
+    "hot/network/archive/a/anaisb/HOT/factorial-development-endpoints-20261113",
+    "hot/network/archive/a/anaisb/HOT/development-native-retained-archives-20261114/retail_c0_o0_t0",
+    "hot/network/archive/a/anaisb/HOT/development-native-retained-archives-20261114/retail_c0_o0_t1",
+    "hot/network/archive/a/anaisb/HOT/development-native-retained-archives-20261114/retail_c0_o1_t0",
+    "hot/network/archive/a/anaisb/HOT/development-native-retained-archives-20261114/retail_c0_o1_t1",
+    "hot/network/archive/a/anaisb/HOT/development-native-retained-archives-20261114/retail_c1_o0_t0",
+    "hot/network/archive/a/anaisb/HOT/development-native-retained-archives-20261114/retail_c1_o0_t1",
+    "hot/network/archive/a/anaisb/HOT/development-native-retained-archives-20261114/retail_c1_o1_t0"
+  ]
+}

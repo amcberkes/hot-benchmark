@@ -1,0 +1,17 @@
+building,floor_area_m2,num_conditioned_zones,window_to_wall_ratio,building_height_m
+"Office, small",511.2,5,21.19,6.33
+"Office, medium",4982.5,18,33.0,11.9
+"Office, large",46323.0,23,40.0,39.9
+"Retail, standalone",2294.0,5,7.13,6.1
+"Retail, strip mall",2090.3,10,10.51,5.18
+"School, primary",6873.8,25,35.0,4.0
+"School, secondary",19592.0,46,35.0,8.0
+Hospital,22442.8,55,16.33,23.8
+Outpatient healthcare,3804.7,118,19.85,9.14
+"Hotel, small",3726.0,54,12.02,11.6
+"Hotel, large",11349.0,22,30.15,21.6
+"Apartment, mid-rise",2825.0,24,20.0,3.05
+"Apartment, high-rise",7062.7,24,30.0,3.05
+"Restaurant, sit-down",511.2,2,17.11,3.77
+"Restaurant, fast food",232.4,2,14.0,3.05
+Warehouse,4835.1,3,0.71,8.53

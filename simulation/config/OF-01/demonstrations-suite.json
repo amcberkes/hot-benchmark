@@ -1,0 +1,229 @@
+{
+  "schema_version": "hot-control-suite/1.2.0",
+  "name": "scheduled_training_demonstrations",
+  "tasks": [
+    {
+      "name": "office_c0_o0_t1",
+      "building": {
+        "asset_id": "factorial_office_o0_t1_five_minute",
+        "relative_path": "five_minute/office_o0_t1.epJSON",
+        "sha256": "8c21ba87b965c81f640e78f7e25b7690a072b1281643334194eca2565d449e3f"
+      },
+      "weather": {
+        "asset_id": "fairbanks_tmy3",
+        "relative_path": "USA_AK_Fairbanks.Intl.AP.702610_TMY3.epw",
+        "sha256": "8a254dbf27b002f0ce93a6930ed1fc0a399601c714abcafc7a8dbabd321f9659"
+      },
+      "observation_space": {
+        "kind": "box",
+        "shape": [
+          36
+        ],
+        "dtype": "float32",
+        "encoding": "hot_observation_occupancy_bounds_calendar_v1",
+        "lower_bound": 0.0,
+        "upper_bound": 1.0
+      },
+      "action_space": {
+        "kind": "box",
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "encoding": "normalized_0_1",
+        "lower_bound": 0.0,
+        "upper_bound": 1.0
+      },
+      "action_profile": {
+        "profile_id": "thermostat_v1",
+        "transform_id": "bounded_thermostat_12_32_v1",
+        "controlled_entities": [
+          "Core_ZN",
+          "Perimeter_ZN_1",
+          "Perimeter_ZN_2",
+          "Perimeter_ZN_3",
+          "Perimeter_ZN_4"
+        ],
+        "channels": [
+          {
+            "name": "heating_setpoint_c",
+            "unit": "degC",
+            "physical_min": 12.0,
+            "physical_max": 24.0
+          },
+          {
+            "name": "cooling_offset_c",
+            "unit": "delta_degC",
+            "physical_min": 2.0,
+            "physical_max": 20.0
+          }
+        ]
+      },
+      "episode": {
+        "timesteps_per_hour": 12,
+        "episode_length_hours": 168,
+        "training_end_behavior": "truncate"
+      },
+      "reward": {
+        "reward_id": "hot_scheduled_occupied_energy_comfort_v3",
+        "parameters": {
+          "energy_weight": 0.5,
+          "comfort_weight": 0.5,
+          "energy_scale_kwh_per_m2": 0.001,
+          "comfort_scale_person_celsius_squared_hours_per_m2": 0.001,
+          "comfort_schedule": {
+            "schema_version": "hot-comfort-schedule/1.1.0",
+            "default": {
+              "minimum_c": 20.0,
+              "maximum_c": 23.5
+            },
+            "zone_defaults": {},
+            "periods": [],
+            "monthly_defaults": {
+              "6": {
+                "minimum_c": 23.0,
+                "maximum_c": 26.0
+              },
+              "7": {
+                "minimum_c": 23.0,
+                "maximum_c": 26.0
+              },
+              "8": {
+                "minimum_c": 23.0,
+                "maximum_c": 26.0
+              },
+              "9": {
+                "minimum_c": 23.0,
+                "maximum_c": 26.0
+              }
+            }
+          }
+        }
+      },
+      "metadata": {
+        "archetype": "OfficeSmall__STD2013",
+        "source_preparation": "recovered_original_with_reporting_only",
+        "scope": "Evaluation-only factorial variant; a new task-specific native calibration is required before training.",
+        "occupancy_shift_minutes": 0,
+        "thermal_scenario": "high_performance",
+        "cadence_qualification": "Five-minute evaluation qualification; no inherited training normalization. Recalibrate before training."
+      },
+      "warmup_preconditioning": {
+        "schema_version": "hot-runperiod-warmup-api-contract/1.0.0",
+        "strategy_id": "disabled"
+      },
+      "component_energy_meters": {
+        "electricity": "HOT:COMPONENTHVAC:ELECTRICITY:51E5BC9D9B32C878",
+        "natural_gas": "HOT:COMPONENTHVAC:NATURAL_GAS:51E5BC9D9B32C878"
+      },
+      "weekly_training_reward": {
+        "reward_id": "hot_weekly_person_hour_reference_v1",
+        "parameters": {
+          "calibration": {
+            "asset_id": "native_reference_office_c0_o0_t1",
+            "relative_path": "calibration_office_c0_o0_t1.json",
+            "sha256": "b6bae192b31b9710da62bb5ae7993f3ff9c8a27d56dbcd652047b581207009e3"
+          },
+          "energy_weight": 1.0,
+          "comfort_scale_celsius_squared": 1.0
+        }
+      }
+    }
+  ],
+  "experiments": [
+    {
+      "name": "winter_training_demonstrations",
+      "algorithm_id": "scheduled_thermostat",
+      "train_tasks": [],
+      "evaluation_tasks": [
+        "office_c0_o0_t1"
+      ],
+      "seeds": [
+        0
+      ],
+      "parameters": {
+        "occupied_weekdays": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "occupied_start_minute": 300,
+        "occupied_end_minute": 1380,
+        "occupied_heating_c": 20,
+        "occupied_cooling_c": 23.5,
+        "unoccupied_heating_c": 15.56,
+        "unoccupied_cooling_c": 29.44
+      },
+      "evaluation_protocol": {
+        "protocol_id": "weekly_validation_v1",
+        "episodes_per_window": 1,
+        "deterministic_actions": true,
+        "windows": [
+          {
+            "name": "demonstration_m02",
+            "start_month": 2,
+            "start_day": 8,
+            "end_month": 2,
+            "end_day": 14
+          },
+          {
+            "name": "demonstration_m05",
+            "start_month": 5,
+            "start_day": 8,
+            "end_month": 5,
+            "end_day": 14
+          },
+          {
+            "name": "demonstration_m11",
+            "start_month": 11,
+            "start_day": 8,
+            "end_month": 11,
+            "end_day": 14
+          }
+        ]
+      }
+    },
+    {
+      "name": "summer_training_demonstrations",
+      "algorithm_id": "scheduled_thermostat",
+      "train_tasks": [],
+      "evaluation_tasks": [
+        "office_c0_o0_t1"
+      ],
+      "seeds": [
+        0
+      ],
+      "parameters": {
+        "occupied_weekdays": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "occupied_start_minute": 300,
+        "occupied_end_minute": 1380,
+        "occupied_heating_c": 23,
+        "occupied_cooling_c": 26,
+        "unoccupied_heating_c": 15.56,
+        "unoccupied_cooling_c": 29.44
+      },
+      "evaluation_protocol": {
+        "protocol_id": "weekly_validation_v1",
+        "episodes_per_window": 1,
+        "deterministic_actions": true,
+        "windows": [
+          {
+            "name": "demonstration_m08",
+            "start_month": 8,
+            "start_day": 8,
+            "end_month": 8,
+            "end_day": 14
+          }
+        ]
+      }
+    }
+  ]
+}

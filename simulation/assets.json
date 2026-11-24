@@ -1,0 +1,33 @@
+{
+  "repository": "BuildingBench/HOT",
+  "revision": "06e84189e6c1e196f689dee26acd49533aa5f3af",
+  "templates": {
+    "office": {
+      "path": "base/OfficeSmall__STD2013/OfficeSmall_STD2013_Seattle.epJSON",
+      "sha256": "4e78be71060bd981a0cbe3bd1b65869b3a7b7c87145e758d767a9c0010f4c8fa"
+    },
+    "retail": {
+      "path": "base/RetailStandalone_STD2013/RetailStandalone_STD2013_Seattle.epJSON",
+      "sha256": "17b8b34ed778da4ba2e2ab5de04436b536edfebe847b31646cf6cbb55d2fc5af"
+    }
+  },
+  "files": {
+    "USA_AK_Fairbanks.Intl.AP.702610_TMY3.epw": "8a254dbf27b002f0ce93a6930ed1fc0a399601c714abcafc7a8dbabd321f9659",
+    "USA_WA_Seattle-Tacoma.Intl.AP.727930_TMY3.epw": "686afb91d3431a9458e3490d74bb2974ab83803110e77e5ef781a623ccade2dd",
+    "calibration_office_c0_o0_t0.json": "0100c04b91af2acaa4f7b6d5ab6a18818ef30df98ff2a72415e6a70c4a2ccc0f",
+    "calibration_office_c0_o0_t1.json": "b6bae192b31b9710da62bb5ae7993f3ff9c8a27d56dbcd652047b581207009e3",
+    "calibration_office_c0_o1_t0.json": "f84ed50031ea149f1075dfb90c5454d89c6e24aef8fdde0b843169c7c9100f98",
+    "calibration_office_c1_o0_t0.json": "f308b4527026f14d2ba9d2ac7804c964569daad56c573c73ec5fd5ab41b5acd3",
+    "calibration_retail_c0_o0_t0.json": "31d86f4baa7e368cb89e0688bacd082867fddd132b8c0b9bf820943e60d1b3c2",
+    "calibration_retail_c1_o0_t0.json": "f31ef9c8a68ce83c9d9373ce42c681a130b2e5b723b14a658f5ef4c540bd89c7",
+    "factorial_20261113/retail_o0_t1.epJSON": "cbaa5dd84c0593195e83939439237bcf267e7149b2df624a7b8504ffac29bea4",
+    "factorial_20261113/retail_o1_t0.epJSON": "d97f6f884f545341be7be3ba23df750c486e676a039e5d60820b8578a7b46628",
+    "factorial_20261113/retail_o1_t1.epJSON": "a24e42cbbce110ed6e3746086b020b1264f1aee7bff3d0d2a51333ad1382a44f",
+    "five_minute/office_o0_t1.epJSON": "8c21ba87b965c81f640e78f7e25b7690a072b1281643334194eca2565d449e3f",
+    "five_minute/office_o1_t0.epJSON": "801221e5a3d5c1e42560f9540af80635ef8d79817909b44f57ae1964d5e5769e",
+    "five_minute/office_o1_t1.epJSON": "31916ba6316f82df9364b926080bc5177ffce8bcd8ddd40b892afd5f9ca2d519",
+    "five_minute/officesmall_original_controls_reporting_warmup200.epJSON": "3e9fe358ab174cd2fec6f1844c96446f5955510e41cfde56ec403ae1e631234c",
+    "retail_fairbanks_analytical_20261111.epJSON": "1931a3fda04cc2412ad3a7790f5002790edf7906f20acd0620cee22db7499006",
+    "retail_seattle_analytical_20261111.epJSON": "1931a3fda04cc2412ad3a7790f5002790edf7906f20acd0620cee22db7499006"
+  }
+}

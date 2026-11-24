@@ -1,0 +1,168 @@
+{
+  "Meter:Custom": {
+    "HOT:COMPONENTHVAC:ELECTRICITY:73D283385B36FB3C": {
+      "resource_type": "Electricity",
+      "variable_details": [
+        {
+          "key_name": "FRONT_ENTRY UNIT HEATER FAN",
+          "output_variable_or_meter_name": "Fan Electricity Energy"
+        },
+        {
+          "key_name": "FRONT_ENTRY UNIT HEATER HEATING COIL",
+          "output_variable_or_meter_name": "Heating Coil Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:1 COOLING COIL",
+          "output_variable_or_meter_name": "Cooling Coil Crankcase Heater Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:1 COOLING COIL",
+          "output_variable_or_meter_name": "Cooling Coil Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:1 HEATING COIL",
+          "output_variable_or_meter_name": "Heating Coil Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:1_ADDAQ_UNITARY_PACKAGE_FAN",
+          "output_variable_or_meter_name": "Fan Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:1_UNITARY_PACKAGE_DX",
+          "output_variable_or_meter_name": "Unitary System Cooling Ancillary Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:1_UNITARY_PACKAGE_DX",
+          "output_variable_or_meter_name": "Unitary System Heating Ancillary Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:2 COOLING COIL",
+          "output_variable_or_meter_name": "Cooling Coil Crankcase Heater Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:2 COOLING COIL",
+          "output_variable_or_meter_name": "Cooling Coil Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:2 HEATING COIL",
+          "output_variable_or_meter_name": "Heating Coil Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:2_ADDAQ_UNITARY_PACKAGE_FAN",
+          "output_variable_or_meter_name": "Fan Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:2_UNITARY_PACKAGE_DX",
+          "output_variable_or_meter_name": "Unitary System Cooling Ancillary Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:2_UNITARY_PACKAGE_DX",
+          "output_variable_or_meter_name": "Unitary System Heating Ancillary Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:3 COOLING COIL",
+          "output_variable_or_meter_name": "Cooling Coil Crankcase Heater Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:3 COOLING COIL",
+          "output_variable_or_meter_name": "Cooling Coil Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:3 HEATING COIL",
+          "output_variable_or_meter_name": "Heating Coil Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:3_ADDAQ_UNITARY_PACKAGE_FAN",
+          "output_variable_or_meter_name": "Fan Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:3_UNITARY_PACKAGE_DX",
+          "output_variable_or_meter_name": "Unitary System Cooling Ancillary Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:3_UNITARY_PACKAGE_DX",
+          "output_variable_or_meter_name": "Unitary System Heating Ancillary Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:4 COOLING COIL",
+          "output_variable_or_meter_name": "Cooling Coil Crankcase Heater Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:4 COOLING COIL",
+          "output_variable_or_meter_name": "Cooling Coil Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:4 HEATING COIL",
+          "output_variable_or_meter_name": "Heating Coil Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:4_ADDAQ_UNITARY_PACKAGE_FAN",
+          "output_variable_or_meter_name": "Fan Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:4_UNITARY_PACKAGE_DX",
+          "output_variable_or_meter_name": "Unitary System Cooling Ancillary Electricity Energy"
+        },
+        {
+          "key_name": "PSZ-AC:4_UNITARY_PACKAGE_DX",
+          "output_variable_or_meter_name": "Unitary System Heating Ancillary Electricity Energy"
+        }
+      ]
+    },
+    "HOT:COMPONENTHVAC:NATURAL_GAS:73D283385B36FB3C": {
+      "resource_type": "NaturalGas",
+      "variable_details": [
+        {
+          "key_name": "FRONT_ENTRY UNIT HEATER HEATING COIL",
+          "output_variable_or_meter_name": "Heating Coil Ancillary NaturalGas Energy"
+        },
+        {
+          "key_name": "FRONT_ENTRY UNIT HEATER HEATING COIL",
+          "output_variable_or_meter_name": "Heating Coil NaturalGas Energy"
+        },
+        {
+          "key_name": "PSZ-AC:1 HEATING COIL",
+          "output_variable_or_meter_name": "Heating Coil Ancillary NaturalGas Energy"
+        },
+        {
+          "key_name": "PSZ-AC:1 HEATING COIL",
+          "output_variable_or_meter_name": "Heating Coil NaturalGas Energy"
+        },
+        {
+          "key_name": "PSZ-AC:2 HEATING COIL",
+          "output_variable_or_meter_name": "Heating Coil Ancillary NaturalGas Energy"
+        },
+        {
+          "key_name": "PSZ-AC:2 HEATING COIL",
+          "output_variable_or_meter_name": "Heating Coil NaturalGas Energy"
+        },
+        {
+          "key_name": "PSZ-AC:3 HEATING COIL",
+          "output_variable_or_meter_name": "Heating Coil Ancillary NaturalGas Energy"
+        },
+        {
+          "key_name": "PSZ-AC:3 HEATING COIL",
+          "output_variable_or_meter_name": "Heating Coil NaturalGas Energy"
+        },
+        {
+          "key_name": "PSZ-AC:4 HEATING COIL",
+          "output_variable_or_meter_name": "Heating Coil Ancillary NaturalGas Energy"
+        },
+        {
+          "key_name": "PSZ-AC:4 HEATING COIL",
+          "output_variable_or_meter_name": "Heating Coil NaturalGas Energy"
+        }
+      ]
+    }
+  },
+  "Output:Meter": {
+    "HOT_component_electricity_73d283385b36fb3c": {
+      "key_name": "HOT:COMPONENTHVAC:ELECTRICITY:73D283385B36FB3C",
+      "reporting_frequency": "Timestep"
+    },
+    "HOT_component_natural_gas_73d283385b36fb3c": {
+      "key_name": "HOT:COMPONENTHVAC:NATURAL_GAS:73D283385B36FB3C",
+      "reporting_frequency": "Timestep"
+    }
+  }
+}

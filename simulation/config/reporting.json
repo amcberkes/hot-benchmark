@@ -1,0 +1,660 @@
+{
+  "Output:Meter": {
+    "Output:Meter:ElectricityHVAC": {
+      "key_name": "Electricity:HVAC",
+      "reporting_frequency": "Timestep"
+    },
+    "Output:Meter:NaturalGasHVAC": {
+      "key_name": "NaturalGas:HVAC",
+      "reporting_frequency": "Timestep"
+    },
+    "Electricity_Facility_Timestep": {
+      "key_name": "Electricity:Facility",
+      "reporting_frequency": "Timestep"
+    },
+    "Electricity_Facility_Hourly": {
+      "key_name": "Electricity:Facility",
+      "reporting_frequency": "Hourly"
+    },
+    "Electricity_Facility_Monthly": {
+      "key_name": "Electricity:Facility",
+      "reporting_frequency": "Monthly"
+    },
+    "NaturalGas_Facility_Timestep": {
+      "key_name": "NaturalGas:Facility",
+      "reporting_frequency": "Timestep"
+    },
+    "NaturalGas_Facility_Hourly": {
+      "key_name": "NaturalGas:Facility",
+      "reporting_frequency": "Hourly"
+    },
+    "NaturalGas_Facility_Monthly": {
+      "key_name": "NaturalGas:Facility",
+      "reporting_frequency": "Monthly"
+    },
+    "Electricity_HVAC_Timestep": {
+      "key_name": "Electricity:HVAC",
+      "reporting_frequency": "Timestep"
+    },
+    "Electricity_HVAC_Hourly": {
+      "key_name": "Electricity:HVAC",
+      "reporting_frequency": "Hourly"
+    },
+    "Electricity_HVAC_Monthly": {
+      "key_name": "Electricity:HVAC",
+      "reporting_frequency": "Monthly"
+    },
+    "InteriorLights_Electricity_Timestep": {
+      "key_name": "InteriorLights:Electricity",
+      "reporting_frequency": "Timestep"
+    },
+    "InteriorLights_Electricity_Hourly": {
+      "key_name": "InteriorLights:Electricity",
+      "reporting_frequency": "Hourly"
+    },
+    "InteriorLights_Electricity_Monthly": {
+      "key_name": "InteriorLights:Electricity",
+      "reporting_frequency": "Monthly"
+    },
+    "InteriorEquipment_Electricity_Timestep": {
+      "key_name": "InteriorEquipment:Electricity",
+      "reporting_frequency": "Timestep"
+    },
+    "InteriorEquipment_Electricity_Hourly": {
+      "key_name": "InteriorEquipment:Electricity",
+      "reporting_frequency": "Hourly"
+    },
+    "InteriorEquipment_Electricity_Monthly": {
+      "key_name": "InteriorEquipment:Electricity",
+      "reporting_frequency": "Monthly"
+    },
+    "Heating_Electricity_Timestep": {
+      "key_name": "Heating:Electricity",
+      "reporting_frequency": "Timestep"
+    },
+    "Heating_Electricity_Hourly": {
+      "key_name": "Heating:Electricity",
+      "reporting_frequency": "Hourly"
+    },
+    "Heating_Electricity_Monthly": {
+      "key_name": "Heating:Electricity",
+      "reporting_frequency": "Monthly"
+    },
+    "Cooling_Electricity_Timestep": {
+      "key_name": "Cooling:Electricity",
+      "reporting_frequency": "Timestep"
+    },
+    "Cooling_Electricity_Hourly": {
+      "key_name": "Cooling:Electricity",
+      "reporting_frequency": "Hourly"
+    },
+    "Cooling_Electricity_Monthly": {
+      "key_name": "Cooling:Electricity",
+      "reporting_frequency": "Monthly"
+    },
+    "Fans_Electricity_Timestep": {
+      "key_name": "Fans:Electricity",
+      "reporting_frequency": "Timestep"
+    },
+    "Fans_Electricity_Hourly": {
+      "key_name": "Fans:Electricity",
+      "reporting_frequency": "Hourly"
+    },
+    "Fans_Electricity_Monthly": {
+      "key_name": "Fans:Electricity",
+      "reporting_frequency": "Monthly"
+    },
+    "Pumps_Electricity_Timestep": {
+      "key_name": "Pumps:Electricity",
+      "reporting_frequency": "Timestep"
+    },
+    "Pumps_Electricity_Hourly": {
+      "key_name": "Pumps:Electricity",
+      "reporting_frequency": "Hourly"
+    },
+    "Pumps_Electricity_Monthly": {
+      "key_name": "Pumps:Electricity",
+      "reporting_frequency": "Monthly"
+    },
+    "NaturalGas_HVAC_Timestep": {
+      "key_name": "NaturalGas:HVAC",
+      "reporting_frequency": "Timestep"
+    },
+    "NaturalGas_HVAC_Hourly": {
+      "key_name": "NaturalGas:HVAC",
+      "reporting_frequency": "Hourly"
+    },
+    "NaturalGas_HVAC_Monthly": {
+      "key_name": "NaturalGas:HVAC",
+      "reporting_frequency": "Monthly"
+    },
+    "Heating_NaturalGas_Timestep": {
+      "key_name": "Heating:NaturalGas",
+      "reporting_frequency": "Timestep"
+    },
+    "Heating_NaturalGas_Hourly": {
+      "key_name": "Heating:NaturalGas",
+      "reporting_frequency": "Hourly"
+    },
+    "Heating_NaturalGas_Monthly": {
+      "key_name": "Heating:NaturalGas",
+      "reporting_frequency": "Monthly"
+    },
+    "DistrictHeating_Facility_Timestep": {
+      "key_name": "DistrictHeating:Facility",
+      "reporting_frequency": "Timestep"
+    },
+    "DistrictHeating_Facility_Hourly": {
+      "key_name": "DistrictHeating:Facility",
+      "reporting_frequency": "Hourly"
+    },
+    "DistrictHeating_Facility_Monthly": {
+      "key_name": "DistrictHeating:Facility",
+      "reporting_frequency": "Monthly"
+    },
+    "DistrictCooling_Facility_Timestep": {
+      "key_name": "DistrictCooling:Facility",
+      "reporting_frequency": "Timestep"
+    },
+    "DistrictCooling_Facility_Hourly": {
+      "key_name": "DistrictCooling:Facility",
+      "reporting_frequency": "Hourly"
+    },
+    "DistrictCooling_Facility_Monthly": {
+      "key_name": "DistrictCooling:Facility",
+      "reporting_frequency": "Monthly"
+    }
+  },
+  "Output:Variable": {
+    "Output:Variable Site Outdoor Air Drybulb Temperature": {
+      "key_value": "Environment",
+      "variable_name": "Site Outdoor Air Drybulb Temperature",
+      "reporting_frequency": "Timestep"
+    },
+    "Output:Variable Site Outdoor Air Humidity Ratio": {
+      "key_value": "Environment",
+      "variable_name": "Site Outdoor Air Humidity Ratio",
+      "reporting_frequency": "Timestep"
+    },
+    "Output:Variable Site Outdoor Air Relative Humidity": {
+      "key_value": "Environment",
+      "variable_name": "Site Outdoor Air Relative Humidity",
+      "reporting_frequency": "Timestep"
+    },
+    "Output:Variable Site Outdoor Air Wetbulb Temperature": {
+      "key_value": "Environment",
+      "variable_name": "Site Outdoor Air Wetbulb Temperature",
+      "reporting_frequency": "Timestep"
+    },
+    "Output:Variable Site Outdoor Air Dewpoint Temperature": {
+      "key_value": "Environment",
+      "variable_name": "Site Outdoor Air Dewpoint Temperature",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Ideal_Loads_Zone_Sensible_Heating_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Ideal Loads Zone Sensible Heating Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Ideal_Loads_Zone_Sensible_Cooling_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Ideal Loads Zone Sensible Cooling Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Ideal_Loads_Zone_Latent_Heating_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Ideal Loads Zone Latent Heating Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Ideal_Loads_Zone_Latent_Cooling_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Ideal Loads Zone Latent Cooling Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Ideal_Loads_Zone_Total_Heating_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Ideal Loads Zone Total Heating Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Ideal_Loads_Zone_Total_Cooling_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Ideal Loads Zone Total Cooling Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Ideal_Loads_Zone_Sensible_Heating_Energy_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Ideal Loads Zone Sensible Heating Energy",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Ideal_Loads_Zone_Sensible_Cooling_Energy_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Ideal Loads Zone Sensible Cooling Energy",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Ideal_Loads_Zone_Latent_Heating_Energy_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Ideal Loads Zone Latent Heating Energy",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Ideal_Loads_Zone_Latent_Cooling_Energy_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Ideal Loads Zone Latent Cooling Energy",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Ideal_Loads_Zone_Total_Heating_Energy_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Ideal Loads Zone Total Heating Energy",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Ideal_Loads_Zone_Total_Cooling_Energy_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Ideal Loads Zone Total Cooling Energy",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Ideal_Loads_Zone_Total_Heating_Energy_Hourly": {
+      "key_value": "*",
+      "variable_name": "Zone Ideal Loads Zone Total Heating Energy",
+      "reporting_frequency": "Hourly"
+    },
+    "Zone_Ideal_Loads_Zone_Total_Cooling_Energy_Hourly": {
+      "key_value": "*",
+      "variable_name": "Zone Ideal Loads Zone Total Cooling Energy",
+      "reporting_frequency": "Hourly"
+    },
+    "Zone_Air_Temperature_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Air Temperature",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Air_Temperature_Hourly": {
+      "key_value": "*",
+      "variable_name": "Zone Air Temperature",
+      "reporting_frequency": "Hourly"
+    },
+    "Zone_Air_Relative_Humidity_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Air Relative Humidity",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Air_Humidity_Ratio_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Air Humidity Ratio",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Mean_Radiant_Temperature_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Mean Radiant Temperature",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Operative_Temperature_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Operative Temperature",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Thermostat_Heating_Setpoint_Temperature_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Thermostat Heating Setpoint Temperature",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Thermostat_Cooling_Setpoint_Temperature_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Thermostat Cooling Setpoint Temperature",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Thermostat_Heating_Setpoint_Temperature_Hourly": {
+      "key_value": "*",
+      "variable_name": "Zone Thermostat Heating Setpoint Temperature",
+      "reporting_frequency": "Hourly"
+    },
+    "Zone_Thermostat_Cooling_Setpoint_Temperature_Hourly": {
+      "key_value": "*",
+      "variable_name": "Zone Thermostat Cooling Setpoint Temperature",
+      "reporting_frequency": "Hourly"
+    },
+    "Zone_Thermostat_Control_Type_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Thermostat Control Type",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Total_Internal_Sensible_Gain_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Total Internal Sensible Gain Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Total_Internal_Latent_Gain_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Total Internal Latent Gain Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Windows_Total_Transmitted_Solar_Radiation_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Windows Total Transmitted Solar Radiation Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Infiltration_Sensible_Heat_Gain_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Infiltration Sensible Heat Gain Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Infiltration_Sensible_Heat_Loss_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Infiltration Sensible Heat Loss Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Infiltration_Latent_Heat_Gain_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Infiltration Latent Heat Gain Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Infiltration_Latent_Heat_Loss_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Infiltration Latent Heat Loss Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_People_Occupant_Count_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone People Occupant Count",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_People_Total_Heating_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone People Total Heating Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Lights_Electric_Power_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Lights Electric Power",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Electric_Equipment_Electric_Power_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Electric Equipment Electric Power",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Gas_Equipment_NaturalGas_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Gas Equipment NaturalGas Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Air_System_Sensible_Heating_Energy_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Air System Sensible Heating Energy",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Air_System_Sensible_Cooling_Energy_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Air System Sensible Cooling Energy",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Air_System_Sensible_Heating_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Air System Sensible Heating Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Air_System_Sensible_Cooling_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Air System Sensible Cooling Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Facility_Total_Electric_Demand_Power_Timestep": {
+      "key_value": "*",
+      "variable_name": "Facility Total Electric Demand Power",
+      "reporting_frequency": "Timestep"
+    },
+    "Facility_Total_Electric_Demand_Power_Hourly": {
+      "key_value": "*",
+      "variable_name": "Facility Total Electric Demand Power",
+      "reporting_frequency": "Hourly"
+    },
+    "Facility_Total_HVAC_Electric_Demand_Power_Timestep": {
+      "key_value": "*",
+      "variable_name": "Facility Total HVAC Electric Demand Power",
+      "reporting_frequency": "Timestep"
+    },
+    "Facility_Total_HVAC_Electric_Demand_Power_Hourly": {
+      "key_value": "*",
+      "variable_name": "Facility Total HVAC Electric Demand Power",
+      "reporting_frequency": "Hourly"
+    },
+    "Facility_Total_Building_Electric_Demand_Power_Timestep": {
+      "key_value": "*",
+      "variable_name": "Facility Total Building Electric Demand Power",
+      "reporting_frequency": "Timestep"
+    },
+    "Facility_Total_Building_Electric_Demand_Power_Hourly": {
+      "key_value": "*",
+      "variable_name": "Facility Total Building Electric Demand Power",
+      "reporting_frequency": "Hourly"
+    },
+    "Heating_Coil_Electric_Power_Timestep": {
+      "key_value": "*",
+      "variable_name": "Heating Coil Electric Power",
+      "reporting_frequency": "Timestep"
+    },
+    "Heating_Coil_Electric_Power_Hourly": {
+      "key_value": "*",
+      "variable_name": "Heating Coil Electric Power",
+      "reporting_frequency": "Hourly"
+    },
+    "Cooling_Coil_Electric_Power_Timestep": {
+      "key_value": "*",
+      "variable_name": "Cooling Coil Electric Power",
+      "reporting_frequency": "Timestep"
+    },
+    "Cooling_Coil_Electric_Power_Hourly": {
+      "key_value": "*",
+      "variable_name": "Cooling Coil Electric Power",
+      "reporting_frequency": "Hourly"
+    },
+    "DX_Cooling_Coil_Electric_Power_Timestep": {
+      "key_value": "*",
+      "variable_name": "DX Cooling Coil Electric Power",
+      "reporting_frequency": "Timestep"
+    },
+    "DX_Cooling_Coil_Electric_Power_Hourly": {
+      "key_value": "*",
+      "variable_name": "DX Cooling Coil Electric Power",
+      "reporting_frequency": "Hourly"
+    },
+    "Chiller_Electric_Power_Timestep": {
+      "key_value": "*",
+      "variable_name": "Chiller Electric Power",
+      "reporting_frequency": "Timestep"
+    },
+    "Chiller_Electric_Power_Hourly": {
+      "key_value": "*",
+      "variable_name": "Chiller Electric Power",
+      "reporting_frequency": "Hourly"
+    },
+    "Boiler_NaturalGas_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Boiler NaturalGas Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Boiler_NaturalGas_Rate_Hourly": {
+      "key_value": "*",
+      "variable_name": "Boiler NaturalGas Rate",
+      "reporting_frequency": "Hourly"
+    },
+    "Boiler_Electric_Power_Timestep": {
+      "key_value": "*",
+      "variable_name": "Boiler Electric Power",
+      "reporting_frequency": "Timestep"
+    },
+    "Boiler_Electric_Power_Hourly": {
+      "key_value": "*",
+      "variable_name": "Boiler Electric Power",
+      "reporting_frequency": "Hourly"
+    },
+    "Fan_Electric_Power_Timestep": {
+      "key_value": "*",
+      "variable_name": "Fan Electric Power",
+      "reporting_frequency": "Timestep"
+    },
+    "Fan_Electric_Power_Hourly": {
+      "key_value": "*",
+      "variable_name": "Fan Electric Power",
+      "reporting_frequency": "Hourly"
+    },
+    "Pump_Electric_Power_Timestep": {
+      "key_value": "*",
+      "variable_name": "Pump Electric Power",
+      "reporting_frequency": "Timestep"
+    },
+    "Pump_Electric_Power_Hourly": {
+      "key_value": "*",
+      "variable_name": "Pump Electric Power",
+      "reporting_frequency": "Hourly"
+    },
+    "Site_Outdoor_Air_Drybulb_Temperature_Timestep": {
+      "key_value": "*",
+      "variable_name": "Site Outdoor Air Drybulb Temperature",
+      "reporting_frequency": "Timestep"
+    },
+    "Site_Outdoor_Air_Drybulb_Temperature_Hourly": {
+      "key_value": "*",
+      "variable_name": "Site Outdoor Air Drybulb Temperature",
+      "reporting_frequency": "Hourly"
+    },
+    "Site_Outdoor_Air_Drybulb_Temperature_Monthly": {
+      "key_value": "*",
+      "variable_name": "Site Outdoor Air Drybulb Temperature",
+      "reporting_frequency": "Monthly"
+    },
+    "Site_Outdoor_Air_Humidity_Ratio_Timestep": {
+      "key_value": "*",
+      "variable_name": "Site Outdoor Air Humidity Ratio",
+      "reporting_frequency": "Timestep"
+    },
+    "Site_Outdoor_Air_Relative_Humidity_Timestep": {
+      "key_value": "*",
+      "variable_name": "Site Outdoor Air Relative Humidity",
+      "reporting_frequency": "Timestep"
+    },
+    "Site_Outdoor_Air_Dewpoint_Temperature_Timestep": {
+      "key_value": "*",
+      "variable_name": "Site Outdoor Air Dewpoint Temperature",
+      "reporting_frequency": "Timestep"
+    },
+    "Site_Outdoor_Air_Wetbulb_Temperature_Timestep": {
+      "key_value": "*",
+      "variable_name": "Site Outdoor Air Wetbulb Temperature",
+      "reporting_frequency": "Timestep"
+    },
+    "Site_Outdoor_Air_Barometric_Pressure_Timestep": {
+      "key_value": "*",
+      "variable_name": "Site Outdoor Air Barometric Pressure",
+      "reporting_frequency": "Timestep"
+    },
+    "Site_Wind_Speed_Timestep": {
+      "key_value": "*",
+      "variable_name": "Site Wind Speed",
+      "reporting_frequency": "Timestep"
+    },
+    "Site_Wind_Direction_Timestep": {
+      "key_value": "*",
+      "variable_name": "Site Wind Direction",
+      "reporting_frequency": "Timestep"
+    },
+    "Site_Diffuse_Solar_Radiation_Rate_per_Area_Timestep": {
+      "key_value": "*",
+      "variable_name": "Site Diffuse Solar Radiation Rate per Area",
+      "reporting_frequency": "Timestep"
+    },
+    "Site_Direct_Solar_Radiation_Rate_per_Area_Timestep": {
+      "key_value": "*",
+      "variable_name": "Site Direct Solar Radiation Rate per Area",
+      "reporting_frequency": "Timestep"
+    },
+    "Site_Solar_Azimuth_Angle_Timestep": {
+      "key_value": "*",
+      "variable_name": "Site Solar Azimuth Angle",
+      "reporting_frequency": "Timestep"
+    },
+    "Site_Solar_Altitude_Angle_Timestep": {
+      "key_value": "*",
+      "variable_name": "Site Solar Altitude Angle",
+      "reporting_frequency": "Timestep"
+    },
+    "Surface_Outside_Face_Temperature_Timestep": {
+      "key_value": "*",
+      "variable_name": "Surface Outside Face Temperature",
+      "reporting_frequency": "Timestep"
+    },
+    "Surface_Inside_Face_Temperature_Timestep": {
+      "key_value": "*",
+      "variable_name": "Surface Inside Face Temperature",
+      "reporting_frequency": "Timestep"
+    },
+    "Surface_Outside_Face_Convection_Heat_Transfer_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Surface Outside Face Convection Heat Transfer Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Surface_Inside_Face_Convection_Heat_Transfer_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Surface Inside Face Convection Heat Transfer Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Surface_Window_Transmitted_Solar_Radiation_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Surface Window Transmitted Solar Radiation Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Surface_Window_Heat_Gain_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Surface Window Heat Gain Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Surface_Window_Heat_Loss_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Surface Window Heat Loss Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Infiltration_Current_Density_Volume_Flow_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Infiltration Current Density Volume Flow Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Infiltration_Standard_Density_Volume_Flow_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Infiltration Standard Density Volume Flow Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Mechanical_Ventilation_Current_Density_Volume_Flow_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Mechanical Ventilation Current Density Volume Flow Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Mechanical_Ventilation_Standard_Density_Volume_Flow_Rate_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Mechanical Ventilation Standard Density Volume Flow Rate",
+      "reporting_frequency": "Timestep"
+    },
+    "Site_Day_Type_Index_Timestep": {
+      "key_value": "*",
+      "variable_name": "Site Day Type Index",
+      "reporting_frequency": "Timestep"
+    },
+    "Site_Hour_Angle_Timestep": {
+      "key_value": "*",
+      "variable_name": "Site Hour Angle",
+      "reporting_frequency": "Timestep"
+    },
+    "Site_Daylight_Saving_Time_Status_Timestep": {
+      "key_value": "*",
+      "variable_name": "Site Daylight Saving Time Status",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Thermal_Comfort_Fanger_Model_PMV_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Thermal Comfort Fanger Model PMV",
+      "reporting_frequency": "Timestep"
+    },
+    "Zone_Thermal_Comfort_Fanger_Model_PPD_Timestep": {
+      "key_value": "*",
+      "variable_name": "Zone Thermal Comfort Fanger Model PPD",
+      "reporting_frequency": "Timestep"
+    }
+  }
+}

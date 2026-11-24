@@ -1,0 +1,5 @@
+class,example,many buildings,closed-loop control,described differences
+Prediction datasets,Great Energy Predictor III,yes,no (records only),partial (observed)
+Building-stock models,"ResStock, ComStock",yes,no (no control interface),yes (model parameters)
+Control testbeds,BOPTEST,no (few test cases),yes,partial (per test case)
+HOT,this chapter,yes,yes (one interface),yes (four axes)

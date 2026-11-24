@@ -1,0 +1,808 @@
+{
+  "schema_version": "hot-weekly-reference-calibration/1.0.0",
+  "environment_binding": {
+    "action_profile": {
+      "profile_id": "thermostat_v1",
+      "controlled_entities": [
+        "Core_ZN",
+        "Perimeter_ZN_1",
+        "Perimeter_ZN_2",
+        "Perimeter_ZN_3",
+        "Perimeter_ZN_4"
+      ],
+      "channels": [
+        {
+          "name": "heating_setpoint_c",
+          "unit": "degC",
+          "physical_min": 12.0,
+          "physical_max": 24.0
+        },
+        {
+          "name": "cooling_offset_c",
+          "unit": "delta_degC",
+          "physical_min": 2.0,
+          "physical_max": 20.0
+        }
+      ],
+      "transform_id": "bounded_thermostat_12_32_v1"
+    },
+    "building": {
+      "asset_id": "factorial_office_o1_t0_five_minute",
+      "relative_path": "five_minute/office_o1_t0.epJSON",
+      "sha256": "801221e5a3d5c1e42560f9540af80635ef8d79817909b44f57ae1964d5e5769e"
+    },
+    "calendar_year": null,
+    "component_energy_meters": [
+      [
+        "electricity",
+        "HOT:COMPONENTHVAC:ELECTRICITY:51E5BC9D9B32C878"
+      ],
+      [
+        "natural_gas",
+        "HOT:COMPONENTHVAC:NATURAL_GAS:51E5BC9D9B32C878"
+      ]
+    ],
+    "timesteps_per_hour": 12,
+    "warmup_preconditioning": {
+      "schema_version": "hot-runperiod-warmup-api-contract/1.0.0",
+      "strategy_id": "disabled"
+    },
+    "weather": {
+      "asset_id": "fairbanks_tmy3",
+      "relative_path": "USA_AK_Fairbanks.Intl.AP.702610_TMY3.epw",
+      "sha256": "8a254dbf27b002f0ce93a6930ed1fc0a399601c714abcafc7a8dbabd321f9659"
+    }
+  },
+  "weeks": [
+    {
+      "start_month": 1,
+      "start_day": 8,
+      "end_month": 1,
+      "end_day": 14,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1968.863097017737
+    },
+    {
+      "start_month": 1,
+      "start_day": 22,
+      "end_month": 1,
+      "end_day": 28,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1968.863097017737
+    },
+    {
+      "start_month": 1,
+      "start_day": 23,
+      "end_month": 1,
+      "end_day": 29,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1968.863097017737
+    },
+    {
+      "start_month": 1,
+      "start_day": 24,
+      "end_month": 1,
+      "end_day": 30,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1968.863097017737
+    },
+    {
+      "start_month": 1,
+      "start_day": 25,
+      "end_month": 1,
+      "end_day": 31,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1968.863097017737
+    },
+    {
+      "start_month": 2,
+      "start_day": 8,
+      "end_month": 2,
+      "end_day": 14,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1968.863097017737
+    },
+    {
+      "start_month": 2,
+      "start_day": 22,
+      "end_month": 2,
+      "end_day": 28,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1968.863097017737
+    },
+    {
+      "start_month": 3,
+      "start_day": 8,
+      "end_month": 3,
+      "end_day": 14,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 3,
+      "start_day": 22,
+      "end_month": 3,
+      "end_day": 28,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 3,
+      "start_day": 23,
+      "end_month": 3,
+      "end_day": 29,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 3,
+      "start_day": 24,
+      "end_month": 3,
+      "end_day": 30,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 3,
+      "start_day": 25,
+      "end_month": 3,
+      "end_day": 31,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 4,
+      "start_day": 8,
+      "end_month": 4,
+      "end_day": 14,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 4,
+      "start_day": 22,
+      "end_month": 4,
+      "end_day": 28,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 4,
+      "start_day": 23,
+      "end_month": 4,
+      "end_day": 29,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 4,
+      "start_day": 24,
+      "end_month": 4,
+      "end_day": 30,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 5,
+      "start_day": 8,
+      "end_month": 5,
+      "end_day": 14,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 5,
+      "start_day": 22,
+      "end_month": 5,
+      "end_day": 28,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 5,
+      "start_day": 23,
+      "end_month": 5,
+      "end_day": 29,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1034.0222509493972,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 5,
+      "start_day": 24,
+      "end_month": 5,
+      "end_day": 30,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1034.0222509493972,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 5,
+      "start_day": 25,
+      "end_month": 5,
+      "end_day": 31,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1034.0222509493972,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 6,
+      "start_day": 8,
+      "end_month": 6,
+      "end_day": 14,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 6,
+      "start_day": 22,
+      "end_month": 6,
+      "end_day": 28,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 6,
+      "start_day": 23,
+      "end_month": 6,
+      "end_day": 29,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 6,
+      "start_day": 24,
+      "end_month": 6,
+      "end_day": 30,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 7,
+      "start_day": 8,
+      "end_month": 7,
+      "end_day": 14,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 7,
+      "start_day": 22,
+      "end_month": 7,
+      "end_day": 28,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 7,
+      "start_day": 23,
+      "end_month": 7,
+      "end_day": 29,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 7,
+      "start_day": 24,
+      "end_month": 7,
+      "end_day": 30,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 7,
+      "start_day": 25,
+      "end_month": 7,
+      "end_day": 31,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 8,
+      "start_day": 8,
+      "end_month": 8,
+      "end_day": 14,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 8,
+      "start_day": 22,
+      "end_month": 8,
+      "end_day": 28,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 8,
+      "start_day": 23,
+      "end_month": 8,
+      "end_day": 29,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 8,
+      "start_day": 24,
+      "end_month": 8,
+      "end_day": 30,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 8,
+      "start_day": 25,
+      "end_month": 8,
+      "end_day": 31,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 9,
+      "start_day": 8,
+      "end_month": 9,
+      "end_day": 14,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1103.3237966811748
+    },
+    {
+      "start_month": 9,
+      "start_day": 22,
+      "end_month": 9,
+      "end_day": 28,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1103.3237966811748
+    },
+    {
+      "start_month": 9,
+      "start_day": 23,
+      "end_month": 9,
+      "end_day": 29,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1103.3237966811748
+    },
+    {
+      "start_month": 9,
+      "start_day": 24,
+      "end_month": 9,
+      "end_day": 30,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1103.3237966811748
+    },
+    {
+      "start_month": 10,
+      "start_day": 8,
+      "end_month": 10,
+      "end_day": 14,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1034.0222509493972,
+      "reference_energy_kwh": 1103.3237966811748
+    },
+    {
+      "start_month": 10,
+      "start_day": 22,
+      "end_month": 10,
+      "end_day": 28,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1103.3237966811748
+    },
+    {
+      "start_month": 10,
+      "start_day": 23,
+      "end_month": 10,
+      "end_day": 29,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1103.3237966811748
+    },
+    {
+      "start_month": 10,
+      "start_day": 24,
+      "end_month": 10,
+      "end_day": 30,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1103.3237966811748
+    },
+    {
+      "start_month": 10,
+      "start_day": 25,
+      "end_month": 10,
+      "end_day": 31,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1103.3237966811748
+    },
+    {
+      "start_month": 11,
+      "start_day": 8,
+      "end_month": 11,
+      "end_day": 14,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1103.3237966811748
+    },
+    {
+      "start_month": 11,
+      "start_day": 22,
+      "end_month": 11,
+      "end_day": 28,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1034.0222509493972,
+      "reference_energy_kwh": 1103.3237966811748
+    },
+    {
+      "start_month": 11,
+      "start_day": 23,
+      "end_month": 11,
+      "end_day": 29,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1034.0222509493972,
+      "reference_energy_kwh": 1103.3237966811748
+    },
+    {
+      "start_month": 11,
+      "start_day": 24,
+      "end_month": 11,
+      "end_day": 30,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1103.3237966811748
+    },
+    {
+      "start_month": 12,
+      "start_day": 8,
+      "end_month": 12,
+      "end_day": 14,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1968.863097017737
+    },
+    {
+      "start_month": 12,
+      "start_day": 22,
+      "end_month": 12,
+      "end_day": 28,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1034.0222509493972,
+      "reference_energy_kwh": 1968.863097017737
+    },
+    {
+      "start_month": 12,
+      "start_day": 23,
+      "end_month": 12,
+      "end_day": 29,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1034.0222509493972,
+      "reference_energy_kwh": 1968.863097017737
+    },
+    {
+      "start_month": 12,
+      "start_day": 24,
+      "end_month": 12,
+      "end_day": 30,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1034.0222509493972,
+      "reference_energy_kwh": 1968.863097017737
+    },
+    {
+      "start_month": 12,
+      "start_day": 25,
+      "end_month": 12,
+      "end_day": 31,
+      "role": "training",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1034.0222509493972,
+      "reference_energy_kwh": 1968.863097017737
+    },
+    {
+      "start_month": 1,
+      "start_day": 1,
+      "end_month": 1,
+      "end_day": 7,
+      "role": "validation",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1968.863097017737
+    },
+    {
+      "start_month": 2,
+      "start_day": 1,
+      "end_month": 2,
+      "end_day": 7,
+      "role": "validation",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1968.863097017737
+    },
+    {
+      "start_month": 3,
+      "start_day": 1,
+      "end_month": 3,
+      "end_day": 7,
+      "role": "validation",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 4,
+      "start_day": 1,
+      "end_month": 4,
+      "end_day": 7,
+      "role": "validation",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 5,
+      "start_day": 1,
+      "end_month": 5,
+      "end_day": 7,
+      "role": "validation",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 489.31064494911027
+    },
+    {
+      "start_month": 6,
+      "start_day": 1,
+      "end_month": 6,
+      "end_day": 7,
+      "role": "validation",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 7,
+      "start_day": 1,
+      "end_month": 7,
+      "end_day": 7,
+      "role": "validation",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1034.0222509493972,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 8,
+      "start_day": 1,
+      "end_month": 8,
+      "end_day": 7,
+      "role": "validation",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 258.5022042733298
+    },
+    {
+      "start_month": 9,
+      "start_day": 1,
+      "end_month": 9,
+      "end_day": 7,
+      "role": "validation",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1034.0222509493972,
+      "reference_energy_kwh": 1103.3237966811748
+    },
+    {
+      "start_month": 10,
+      "start_day": 1,
+      "end_month": 10,
+      "end_day": 7,
+      "role": "validation",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1103.3237966811748
+    },
+    {
+      "start_month": 11,
+      "start_day": 1,
+      "end_month": 11,
+      "end_day": 7,
+      "role": "validation",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1103.3237966811748
+    },
+    {
+      "start_month": 12,
+      "start_day": 1,
+      "end_month": 12,
+      "end_day": 7,
+      "role": "validation",
+      "controlled_floor_area_m2": 511.15740000000005,
+      "occupied_person_hours": 1292.5278136867466,
+      "reference_energy_kwh": 1968.863097017737
+    }
+  ],
+  "energy_fit": {
+    "method": "total training reference energy / training floor-area-hours",
+    "month_to_season": {
+      "1": "winter",
+      "2": "winter",
+      "3": "spring",
+      "4": "spring",
+      "5": "spring",
+      "6": "summer",
+      "7": "summer",
+      "8": "summer",
+      "9": "autumn",
+      "10": "autumn",
+      "11": "autumn",
+      "12": "winter"
+    },
+    "power_density_kw_per_m2": {
+      "winter": 0.0229272298445335,
+      "spring": 0.005697977497327286,
+      "summer": 0.0030102344148105033,
+      "autumn": 0.012848104227139546
+    },
+    "training_week_counts": {
+      "winter": 12,
+      "spring": 14,
+      "summer": 14,
+      "autumn": 13
+    }
+  },
+  "provenance": {
+    "reference_controller": {
+      "algorithm_id": "native_incumbent",
+      "thermostat_overrides": "released"
+    },
+    "sources": [
+      {
+        "role": "training",
+        "result_sha256": "ad5435c9ee8379dbf8c30334fbd37f0c3adeed298d2a11d4295f606d78b79359",
+        "run_id": "run-d6c4cab82c5b309ebf5acd24",
+        "artifacts": [
+          {
+            "media_type": "text/csv",
+            "role": "step_trajectory",
+            "sha256": "c787f22dff8c127e8d373426474901270d3bc76c5aeceffcc26052c932444c3f",
+            "uri": "run-d6c4cab82c5b309ebf5acd24.steps.csv"
+          },
+          {
+            "media_type": "application/json",
+            "role": "energyplus_diagnostics",
+            "sha256": "894b791b769626556f81e94f3bfc5454a5f1c9e991079658b16f6a23fc91a9ce",
+            "uri": "run-d6c4cab82c5b309ebf5acd24.energyplus-diagnostics.json"
+          },
+          {
+            "media_type": "application/json",
+            "role": "evaluation_evidence",
+            "sha256": "38604dc2c422cec37434201fa30b2b2d7ec5a41fd99984a55ca7a439217777a9",
+            "uri": "run-d6c4cab82c5b309ebf5acd24.evaluation-evidence.json"
+          },
+          {
+            "media_type": "application/json",
+            "role": "warmup_preconditioning_evidence",
+            "sha256": "157f7e343ed3ab953a49c1743a01b2279807221422d48b09776a3c7e73a720c4",
+            "uri": "run-d6c4cab82c5b309ebf5acd24.warmup-preconditioning-evidence.json"
+          }
+        ]
+      },
+      {
+        "role": "validation",
+        "result_sha256": "a302dc385fc4ced6fcee2b4fd81b91fb10b150486db9fe7db7ae8f976a06c37c",
+        "run_id": "run-faf514851305b531148d5fad",
+        "artifacts": [
+          {
+            "media_type": "text/csv",
+            "role": "step_trajectory",
+            "sha256": "22710cd5abc8ffc2084ef6e8f10a295a6de5387c6ed5ad5c6ebbe4c6c885550c",
+            "uri": "run-faf514851305b531148d5fad.steps.csv"
+          },
+          {
+            "media_type": "application/json",
+            "role": "energyplus_diagnostics",
+            "sha256": "d765ea96b8424dd6038cced5ad2e2406a9950cfd50af9e2f8238a2953f00943b",
+            "uri": "run-faf514851305b531148d5fad.energyplus-diagnostics.json"
+          },
+          {
+            "media_type": "application/json",
+            "role": "evaluation_evidence",
+            "sha256": "e19673a605e4bb80ace6d74453586085daccad4fa0e1f2fa054058a9ae202622",
+            "uri": "run-faf514851305b531148d5fad.evaluation-evidence.json"
+          },
+          {
+            "media_type": "application/json",
+            "role": "warmup_preconditioning_evidence",
+            "sha256": "363d2baba93b6c418c54fd5a622e9ee10ac8f07228a0ec24c878ef99d643db71",
+            "uri": "run-faf514851305b531148d5fad.warmup-preconditioning-evidence.json"
+          }
+        ]
+      }
+    ],
+    "suite_sha256": "aebb6ac846dc7fb8f06f0df1a5fceed3cce031cd9c2bab9ee97f4de3b44a9072"
+  }
+}

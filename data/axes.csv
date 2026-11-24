@@ -1,0 +1,5 @@
+axis,symbol,variation,physical change,control consequence
+Geometry,c_G,16 building types,The number and size of zones,State and action spaces
+Thermal envelope,c_T,3 versions of each building,How fast the building gains and loses heat,Dynamics
+Climate,c_Cl,19 climate zones,Heating and cooling demand and its variability,Disturbances
+Function,c_F,12 occupancy schedules,When people are present and how much heat they add,Reward and dynamics

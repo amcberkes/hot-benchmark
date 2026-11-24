@@ -1,0 +1,234 @@
+{
+  "schema_version": "hot-control-suite/1.2.0",
+  "name": "factorial_source_retail_c1_o0_t0",
+  "tasks": [
+    {
+      "name": "retail_c1_o0_t0",
+      "building": {
+        "asset_id": "retail_seattle_analytical_diagnostic",
+        "relative_path": "retail_seattle_analytical_20261111.epJSON",
+        "sha256": "1931a3fda04cc2412ad3a7790f5002790edf7906f20acd0620cee22db7499006"
+      },
+      "weather": {
+        "asset_id": "seattle_tmy3",
+        "relative_path": "USA_WA_Seattle-Tacoma.Intl.AP.727930_TMY3.epw",
+        "sha256": "686afb91d3431a9458e3490d74bb2974ab83803110e77e5ef781a623ccade2dd"
+      },
+      "observation_space": {
+        "kind": "box",
+        "shape": [
+          36
+        ],
+        "dtype": "float32",
+        "encoding": "hot_observation_occupancy_bounds_calendar_v1",
+        "lower_bound": 0.0,
+        "upper_bound": 1.0
+      },
+      "action_space": {
+        "kind": "box",
+        "shape": [
+          10
+        ],
+        "dtype": "float32",
+        "encoding": "normalized_0_1",
+        "lower_bound": 0.0,
+        "upper_bound": 1.0
+      },
+      "action_profile": {
+        "profile_id": "thermostat_v1",
+        "transform_id": "bounded_thermostat_12_32_v1",
+        "controlled_entities": [
+          "Back_Space",
+          "Core_Retail",
+          "Front_Entry",
+          "Front_Retail",
+          "Point_Of_Sale"
+        ],
+        "channels": [
+          {
+            "name": "heating_setpoint_c",
+            "unit": "degC",
+            "physical_min": 12.0,
+            "physical_max": 24.0
+          },
+          {
+            "name": "cooling_offset_c",
+            "unit": "delta_degC",
+            "physical_min": 2.0,
+            "physical_max": 20.0
+          }
+        ]
+      },
+      "episode": {
+        "timesteps_per_hour": 12,
+        "episode_length_hours": 168,
+        "training_end_behavior": "truncate"
+      },
+      "reward": {
+        "reward_id": "hot_scheduled_occupied_energy_comfort_v3",
+        "parameters": {
+          "energy_weight": 0.5,
+          "comfort_weight": 0.5,
+          "energy_scale_kwh_per_m2": 0.001,
+          "comfort_scale_person_celsius_squared_hours_per_m2": 0.001,
+          "comfort_schedule": {
+            "schema_version": "hot-comfort-schedule/1.1.0",
+            "default": {
+              "minimum_c": 20.0,
+              "maximum_c": 23.5
+            },
+            "zone_defaults": {},
+            "periods": [],
+            "monthly_defaults": {
+              "6": {
+                "minimum_c": 23.0,
+                "maximum_c": 26.0
+              },
+              "7": {
+                "minimum_c": 23.0,
+                "maximum_c": 26.0
+              },
+              "8": {
+                "minimum_c": 23.0,
+                "maximum_c": 26.0
+              },
+              "9": {
+                "minimum_c": 23.0,
+                "maximum_c": 26.0
+              }
+            }
+          }
+        }
+      },
+      "metadata": {
+        "archetype": "RetailStandalone_STD2013",
+        "scope": "Original-controller and fixed-setpoint four-season engineering qualification. No training or independent test claim; energy boundary remains subject to runtime reconciliation."
+      },
+      "warmup_preconditioning": {
+        "schema_version": "hot-runperiod-warmup-api-contract/1.0.0",
+        "strategy_id": "disabled"
+      },
+      "component_energy_meters": {
+        "electricity": "HOT:COMPONENTHVAC:ELECTRICITY:73D283385B36FB3C",
+        "natural_gas": "HOT:COMPONENTHVAC:NATURAL_GAS:73D283385B36FB3C"
+      },
+      "weekly_training_reward": {
+        "reward_id": "hot_weekly_person_hour_reference_v1",
+        "parameters": {
+          "calibration": {
+            "asset_id": "native_reference_retail_c1_o0_t0",
+            "relative_path": "calibration_retail_c1_o0_t0.json",
+            "sha256": "f31ef9c8a68ce83c9d9373ce42c681a130b2e5b723b14a658f5ef4c540bd89c7"
+          },
+          "energy_weight": 1.0,
+          "comfort_scale_celsius_squared": 1.0
+        }
+      }
+    }
+  ],
+  "experiments": [
+    {
+      "name": "source_development_native",
+      "algorithm_id": "native_incumbent",
+      "train_tasks": [],
+      "evaluation_tasks": [
+        "retail_c1_o0_t0"
+      ],
+      "seeds": [
+        0
+      ],
+      "parameters": {},
+      "evaluation_protocol": {
+        "protocol_id": "weekly_validation_v1",
+        "episodes_per_window": 1,
+        "deterministic_actions": true,
+        "windows": [
+          {
+            "name": "month01_days01_07",
+            "start_month": 1,
+            "start_day": 1,
+            "end_month": 1,
+            "end_day": 7
+          },
+          {
+            "name": "month02_days01_07",
+            "start_month": 2,
+            "start_day": 1,
+            "end_month": 2,
+            "end_day": 7
+          },
+          {
+            "name": "month03_days01_07",
+            "start_month": 3,
+            "start_day": 1,
+            "end_month": 3,
+            "end_day": 7
+          },
+          {
+            "name": "month04_days01_07",
+            "start_month": 4,
+            "start_day": 1,
+            "end_month": 4,
+            "end_day": 7
+          },
+          {
+            "name": "month05_days01_07",
+            "start_month": 5,
+            "start_day": 1,
+            "end_month": 5,
+            "end_day": 7
+          },
+          {
+            "name": "month06_days01_07",
+            "start_month": 6,
+            "start_day": 1,
+            "end_month": 6,
+            "end_day": 7
+          },
+          {
+            "name": "month07_days01_07",
+            "start_month": 7,
+            "start_day": 1,
+            "end_month": 7,
+            "end_day": 7
+          },
+          {
+            "name": "month08_days01_07",
+            "start_month": 8,
+            "start_day": 1,
+            "end_month": 8,
+            "end_day": 7
+          },
+          {
+            "name": "month09_days01_07",
+            "start_month": 9,
+            "start_day": 1,
+            "end_month": 9,
+            "end_day": 7
+          },
+          {
+            "name": "month10_days01_07",
+            "start_month": 10,
+            "start_day": 1,
+            "end_month": 10,
+            "end_day": 7
+          },
+          {
+            "name": "month11_days01_07",
+            "start_month": 11,
+            "start_day": 1,
+            "end_month": 11,
+            "end_day": 7
+          },
+          {
+            "name": "month12_days01_07",
+            "start_month": 12,
+            "start_day": 1,
+            "end_month": 12,
+            "end_day": 7
+          }
+        ]
+      }
+    }
+  ]
+}
