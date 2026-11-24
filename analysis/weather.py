@@ -6,7 +6,7 @@ import hashlib
 import math
 from pathlib import Path
 from urllib.parse import quote
-from urllib.request import urlopen
+import subprocess
 
 REVISION = "06e84189e6c1e196f689dee26acd49533aa5f3af"
 
@@ -25,9 +25,10 @@ def main():
         if dest.exists():
             body = dest.read_bytes()
         else:
-            url = f'https://huggingface.co/datasets/BuildingBench/HOT/resolve/{REVISION}/{quote(row["path"])}'
-            with urlopen(url, timeout=120) as response:
-                body = response.read()
+            url = (
+                f'https://huggingface.co/datasets/BuildingBench/HOT/resolve/{REVISION}/{quote(row["path"])}'
+            )
+            body = subprocess.check_output(["curl", "-fLsS", "--retry", "2", "--max-time", "120", url])
         if hashlib.sha256(body).hexdigest() != row["sha256"]:
             raise ValueError(f"EPW checksum mismatch: {dest}")
         if not dest.exists():

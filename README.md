@@ -33,7 +33,7 @@ If you have the thesis PDF, install `PyMuPDF` in the analysis environment and ru
 
 Task codes give building (O = office, R = retail), climate (F = Fairbanks, S = Seattle), occupancy and envelope. For example, `OS-10` is the Seattle office with occupancy shifted two hours earlier and the default envelope. The suffix `01` selects higher thermal resistance and `11` applies both changes.
 
-`contexts.json` and `coefficients.json` supply the geometry, thermal, climate and function terms of the HOT score. The analysis recomputes source choices and checks them against `frozen-selection.csv`. Tied sources share weight equally. Confidence intervals resample the ten training seeds 20,000 times with a fixed random seed. Figure A.2 adjusts for twelve predeclared comparisons. The analysis also checks the 22 source–target pairs in `calendar-disagreements.csv`. CSV outputs retain the precision used for calculation.
+`contexts.json` and `coefficients.json` supply the geometry, thermal, climate and function terms of the HOT score. The analysis recomputes source choices and checks them against `frozen-selection.csv`. Tied sources share weight equally. Confidence intervals resample the ten training seeds 20,000 times with a fixed random seed. Figure A.2 uses a Bonferroni adjustment across two outcomes for six predeclared transfers. The analysis also checks the 22 source–target pairs in `calendar-disagreements.csv`. CSV outputs retain the precision used for calculation.
 
 ## Re-audit or rerun
 

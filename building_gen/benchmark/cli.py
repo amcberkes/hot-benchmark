@@ -85,7 +85,7 @@ def _add_execution_paths(parser: argparse.ArgumentParser) -> None:
 def _add_provenance_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument(
         "--repository",
-        default=os.environ.get("HOT_PROVENANCE_REPOSITORY", SCIENTIFIC_REPOSITORY),
+        default=os.environ.get("HOT_PROVENANCE_REPOSITORY"),
     )
     parser.add_argument("--revision", help="Git revision; auto-detected from the checkout by default.")
     parser.add_argument(
@@ -273,7 +273,9 @@ def _git_checkout_dirty(repository_root: Path) -> bool:
         "--untracked-files=all",
     )
     return bool(
-        status or _git_hidden_index_entries(repository_root) or _git_ignored_import_artifacts(repository_root)
+        status
+        or _git_hidden_index_entries(repository_root)
+        or _git_ignored_import_artifacts(repository_root)
     )
 
 
@@ -281,7 +283,8 @@ def _software_provenance(args: argparse.Namespace) -> SoftwareProvenance:
     try:
         revision = args.revision or _git_value(REPOSITORY_ROOT, "rev-parse", "HEAD")
         dirty = bool(
-            _git_value(REPOSITORY_ROOT, "status", "--porcelain") or _git_hidden_index_entries(REPOSITORY_ROOT)
+            _git_value(REPOSITORY_ROOT, "status", "--porcelain")
+            or _git_hidden_index_entries(REPOSITORY_ROOT)
         )
     except (subprocess.CalledProcessError, FileNotFoundError) as error:
         raise ValueError(
@@ -289,8 +292,16 @@ def _software_provenance(args: argparse.Namespace) -> SoftwareProvenance:
             "with Git installed and readable metadata; --revision alone does not replace "
             "the required checkout status check. Validate this setup before submitting a cluster job."
         ) from error
+    repository = args.repository
+    if not repository:
+        try:
+            repository = _normalized_remote_repository(
+                _git_value(REPOSITORY_ROOT, "remote", "get-url", "origin")
+            )
+        except (subprocess.CalledProcessError, ValueError):
+            repository = "local-checkout"
     return SoftwareProvenance(
-        repository=args.repository,
+        repository=repository,
         revision=revision,
         dirty=dirty,
         python_version=platform.python_version(),
@@ -302,7 +313,10 @@ def _software_provenance(args: argparse.Namespace) -> SoftwareProvenance:
 def _scientific_software_provenance(args: argparse.Namespace) -> tuple[SoftwareProvenance, str]:
     """Resolve exact, clean runtime provenance before an expensive simulation."""
 
-    if _normalized_repository(args.repository).casefold() != SCIENTIFIC_REPOSITORY.casefold():
+    if (
+        args.repository
+        and _normalized_repository(args.repository).casefold() != SCIENTIFIC_REPOSITORY.casefold()
+    ):
         raise ValueError(f"scientific training requires --repository {SCIENTIFIC_REPOSITORY!r}")
     if _git_checkout_dirty(REPOSITORY_ROOT):
         raise ValueError("Scientific execution requires a clean source checkout")
@@ -315,7 +329,9 @@ def _scientific_software_provenance(args: argparse.Namespace) -> tuple[SoftwareP
         try:
             installed = importlib.metadata.version(distribution)
         except importlib.metadata.PackageNotFoundError as error:
-            raise ValueError(f"scientific training requires installed dependency {distribution!r}") from error
+            raise ValueError(
+                f"scientific training requires installed dependency {distribution!r}"
+            ) from error
         if not installed.strip():
             raise ValueError(f"installed dependency {distribution!r} has no version")
         dependencies[distribution] = installed
@@ -435,7 +451,9 @@ def run_builtin_experiment(
                 counts = [float(observation[index]) for index in indices]
                 if any(not math.isfinite(value) or not 0 <= value <= 1 for value in counts):
                     raise ValueError("invalid normalized occupancy input")
-                return occupancy_reactive_action(task, occupied=[value > 0 for value in counts], **parameters)
+                return occupancy_reactive_action(
+                    task, occupied=[value > 0 for value in counts], **parameters
+                )
 
             return EvaluationPolicy(policy, PolicyProvenance("built_in", "occupancy_reactive_thermostat"))
 
