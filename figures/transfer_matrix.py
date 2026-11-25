@@ -59,6 +59,5 @@ def plot_transfer_matrix(counts, output_dir):
     ax.set_xlim(-4.75, col_x[5] + W); ax.set_ylim(row_y[15] + H, -1.95)
     ax.axis("off")
     fig.subplots_adjust(left=0.01, right=0.99, top=0.99, bottom=0.01)
-    fig.savefig(output_dir / "transfer_matrix.pdf")
-    fig.savefig(output_dir / "transfer_matrix.png", dpi=220)
+    fig.savefig(output_dir / "figure-3.6.pdf")
     plt.close(fig)

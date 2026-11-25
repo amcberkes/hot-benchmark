@@ -71,6 +71,5 @@ def plot_source_target_changes(energy, discomfort, output_dir):
     ax.set_xlim(-0.05, xb + PANEL_W); ax.set_ylim(row_y[15] + H, -2.5)
     ax.axis("off")
     fig.subplots_adjust(left=0.005, right=0.995, top=0.995, bottom=0.005)
-    fig.savefig(output_dir / "source_target_changes.pdf")
-    fig.savefig(output_dir / "source_target_changes.png", dpi=220)
+    fig.savefig(output_dir / "figure-3.7.pdf")
     plt.close(fig)

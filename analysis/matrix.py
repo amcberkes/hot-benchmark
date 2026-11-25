@@ -2,7 +2,8 @@
 
 import csv
 import json
-from itertools import product
+from decimal import Decimal, ROUND_HALF_UP
+from itertools import product, zip_longest
 
 import numpy as np
 
@@ -10,6 +11,13 @@ SOURCES = ("OF-00", "OF-01", "OF-10", "OS-00", "RF-00", "RS-00")
 TARGETS = tuple(
     f"{city}-{occ}{env}" for city, occ, env in product(("OF", "OS", "RF", "RS"), (0, 1), (0, 1))
 )
+PLACES = {
+    "OF": "Office, Fairbanks",
+    "OS": "Office, Seattle",
+    "RF": "Retail, Fairbanks",
+    "RS": "Retail, Seattle",
+}
+VARIANTS = {"00": "default", "01": "envelope", "10": "occupancy", "11": "occupancy + envelope"}
 GROUPS = ("Building type and climate", "Climate only", "Building type only", "Neither")
 RULES = (
     "HOT similarity score",
@@ -134,26 +142,53 @@ def selection(data, out, policies, references, archived):
         ["target", "HOT", "climate", "fixed"],
         [(t, *v) for t, v in choices.items()],
     )
-    head = ["rule", "comfort_percent", "joint_percent", "excess_percent_of_historical"]
+    # The main comparison omits the historical controller and gives the inputs to each rule.
+    main_labels = {
+        RULES[0]: (RULES[0], "Full description of the target"),
+        RULES[1]: (RULES[1], "Climate of the target"),
+        RULES[2]: ("Uniform random choice", "Nothing"),
+        RULES[3]: (
+            "Best single source on the validation weeks",
+            "Validation results; one source for every target",
+        ),
+        RULES[5]: (RULES[5], "Test outcomes; reference only"),
+    }
     rows, main, vectors = [], [], []
-    for name, targets in [
-        ("non-source", set(TARGETS) - set(SOURCES)),
-        ("source", set(SOURCES)),
-        ("all", set(TARGETS)),
+    for group, targets in [
+        ("Ten targets that are not sources", set(TARGETS) - set(SOURCES)),
+        ("Six targets that are also sources", set(SOURCES)),
+        ("All sixteen targets", set(TARGETS)),
     ]:
+        rows.append([group, "", "", ""])
         for rule in RULES:
             values = np.array(
                 [[seed, f, j, e] for t, seed, r, f, j, e in records if t in targets and r == rule]
             )
             _, f, joint, excess = values.T
-            row = [rule, 100 * f.mean(), 100 * joint.mean(), excess.sum() / f.sum() if f.any() else ""]
-            rows.append([name, *row])
-            if name == "non-source":
+            feasible_pct = f"{100 * f.mean():.2f}"
+            joint_pct = f"{100 * joint.mean():.2f}"
+            excess_pct = f"{excess.sum() / f.sum():.2f}" if f.any() else ""
+            rows.append([rule, feasible_pct, joint_pct, excess_pct])
+            if targets.isdisjoint(SOURCES):
                 vectors.append(np.array([100 * joint[values[:, 0] == k].mean() for k in range(10)]))
-                if rule != RULES[4]:
-                    main.append([rule, row[2], row[1], row[3]])
-    write_csv(out / "table-A.15.csv", ["targets", *head], rows)
-    write_csv(out / "table-3.8.csv", [head[0], head[2], head[1], head[3]], main)
+                if rule in main_labels:
+                    main.append([*main_labels[rule], joint_pct, feasible_pct, excess_pct])
+    write_csv(
+        out / "table-A.15.csv",
+        ["Rule", "Comfort kept (%)", "Meet both (%)", "Energy above best choice (%)"],
+        rows,
+    )
+    write_csv(
+        out / "table-3.8.csv",
+        [
+            "Rule for choosing the source",
+            "What the rule uses",
+            "Meet both (%)",
+            "Comfort no worse (%)",
+            "Energy above best choice (%)",
+        ],
+        main,
+    )
     return {rule: interval(vectors[0] - v) for rule, v in zip(RULES[1:3], vectors[1:3])}
 
 
@@ -171,28 +206,45 @@ def reproduce(data, out, measurements=None):
         rows = []
         for g, name in enumerate(GROUPS):
             mask = group == g
+            counts = [
+                Decimal(str(a[cal][mask].mean())).quantize(Decimal("0.1"), rounding=ROUND_HALF_UP)
+                for a in (wins, kept)
+            ]
+            energy, discomfort = means[cal][mask].mean(axis=0)
             rows.append(
                 [
                     name,
-                    mask.sum(),
-                    wins[cal][mask].mean(),
-                    kept[cal][mask].mean(),
-                    *means[cal][mask].mean(axis=0),
+                    *([int(mask.sum())] if cal == 0 else []),
+                    *counts,
+                    f"{energy:+.2f}",
+                    f"{discomfort:+.2f}",
                 ]
             )
         write_csv(
             out / f"table-{table}.csv",
-            ["group", "pairs", "joint_of_10", "comfort_of_10", "energy_pct", "discomfort_pct"],
+            [
+                "Source shares with target",
+                *(["Pairs"] if cal == 0 else []),
+                "Meet both (of 10)",
+                "Comfort no worse (of 10)",
+                "Energy change (%)",
+                "Discomfort change (%)",
+            ],
             rows,
         )
+
+    def printed_interval(values):
+        average, lower, upper = interval(values)
+        return f"{average:+.2f} [{lower:+.2f}, {upper:+.2f}]"
+
     for table, s in enumerate(("OF-00", "OF-10", "OF-01", "OS-00", "RF-00", "RS-00"), 5):
         i = SOURCES.index(s)
         rows = [
             [
                 t,
-                *interval(pct[1, i, j, :, 0]),
-                *interval(pct[1, i, j, :, 1]),
-                diff[1, i, j, :, 1].mean(),
+                printed_interval(pct[1, i, j, :, 0]),
+                printed_interval(pct[1, i, j, :, 1]),
+                f"{diff[1, i, j, :, 1].mean():+.4f}",
                 wins[1, i, j],
                 kept[1, i, j],
             ]
@@ -200,21 +252,14 @@ def reproduce(data, out, measurements=None):
         ]
         write_csv(
             out / f"table-A.{table}.csv",
-            [
-                "target",
-                "energy_pct",
-                "lower_E",
-                "upper_E",
-                "discomfort_pct",
-                "lower_C",
-                "upper_C",
-                "discomfort_difference_c2",
-                "joint_of_10",
-                "comfort_of_10",
-            ],
+            ["Target", "ΔE (%), 95% CI", "ΔC (%), 95% CI", "ΔC (°C²)", "Both", "Comfort"],
             rows,
         )
-    write_csv(out / "table-A.11.csv", ["target", *SOURCES], zip(TARGETS, *wins[0]))
+    write_csv(
+        out / "table-A.11.csv",
+        ["Target", "Variant", *[f"{PLACES[s[:2]]} ({VARIANTS[s[-2:]]})" for s in SOURCES]],
+        [(PLACES[t[:2]], VARIANTS[t[-2:]], *v) for t, *v in zip(TARGETS, *wins[0])],
+    )
 
     def signs(a):
         return np.where(np.abs(a) <= 1e-10, 0, np.sign(a))
@@ -234,29 +279,37 @@ def reproduce(data, out, measurements=None):
     roster = {(r["source"], r["target"]) for r in read_csv(data / "calendar-disagreements.csv")}
     if archived and changed.keys() != roster:
         raise ValueError("Calendar comparisons disagree with the archived roster")
+    changes = [(s, t, reason) for (s, t), reason in changed.items()]
+    split = (len(changes) + 1) // 2
     write_csv(
         out / "table-A.13.csv",
-        ["source", "target", "what_changes"],
-        [(s, t, v) for (s, t), v in changed.items()],
+        ["Source", "Target", "What changes"] * 2,
+        [(*a, *b) for a, b in zip_longest(changes[:split], changes[split:], fillvalue=("", "", ""))],
     )
     i = SOURCES.index("RF-00")
     rows = []
     for t in ("RF-00", "RS-00", "OS-00", "OF-00"):
         j = TARGETS.index(t)
+        changes_pct = [*means[:, i, j, 0], *means[:, i, j, 1]]
         rows.append(
-            [t, *means[:, i, j, 0], *means[:, i, j, 1], *wins[:, i, j], ("RF-00", t) not in changed]
+            [
+                PLACES[t[:2]],
+                *[f"{v:+.2f}" for v in changes_pct],
+                *wins[:, i, j],
+                "No" if ("RF-00", t) in changed else "Yes",
+            ]
         )
     write_csv(
         out / "table-3.9.csv",
         [
-            "target",
-            "energy_val_pct",
-            "energy_test_pct",
-            "comfort_val_pct",
-            "comfort_test_pct",
-            "joint_val",
-            "joint_test",
-            "agree",
+            "Target",
+            "Energy change (%) Val.",
+            "Energy change (%) Test",
+            "Discomfort change (%) Val.",
+            "Discomfort change (%) Test",
+            "Meet both (of 10) Val.",
+            "Meet both (of 10) Test",
+            "Both sets agree",
         ],
         rows,
     )

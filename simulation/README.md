@@ -30,7 +30,7 @@ python -m simulation.fetch ../hot-inputs --check
 
 The input builder uses `curl` to retrieve two public Seattle building templates and the Fairbanks and Seattle weather files. It applies the historical meter definitions, reporting and solver settings, five-minute timestep, and occupancy and thermal variants. The six source-specific reward calibrations are versioned under `config/reward/`. Each resulting file must match the original SHA-256 in `assets.json` before a run can start.
 
-## Run the thesis protocol
+## Run the follow-up experiment
 
 For a single source, target, seed and calendar:
 
@@ -70,4 +70,4 @@ python -m building_gen.cli benchmark run-baselines --suite ../my-suite.json \
   --work-dir ../my-week/work --output-dir ../my-week/reference
 ```
 
-For a trained policy, run `python -m building_gen.cli evaluate-baseline --help`. Use the same suite and protocol, supply the source and target task names, and point `--run-dir` at a checkpoint directory. The low-level commands write result JSON, trajectory CSV and simulator diagnostics for custom designs. The numbered thesis tables expect the original six-source, sixteen-target, two-calendar design.
+For a trained policy, run `python -m building_gen.cli evaluate-baseline --help`. Use the same suite and protocol, supply the source and target task names, and point `--run-dir` at a checkpoint directory. The low-level commands write result JSON, trajectory CSV and simulator diagnostics for custom designs. The result tables use the original six-source, sixteen-target, two-calendar design.

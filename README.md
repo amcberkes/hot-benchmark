@@ -1,10 +1,31 @@
-# HOT transfer experiments
+# HOT transfer benchmark
 
-Code and measurements for Chapter 3 and Appendix A of the thesis. Six source tasks, ten training seeds per source and sixteen target tasks give 960 policy evaluations on each of two calendars. Each evaluation compares a policy with the target building’s historical controller.
+Run HVAC controller transfer experiments with the [HOT dataset](https://huggingface.co/datasets/BuildingBench/HOT). Train a policy in one building, deploy it in another, and compare it with the controller already operating there. The supplied experiments vary building type, climate, occupancy schedule and thermal resistance.
 
-## Reproduce the tables and figures
+## Run a transfer experiment
 
-From the repository root, with Python 3.12:
+The example below trains one policy in the default Fairbanks office and evaluates it in Seattle retail with an earlier occupancy schedule and higher thermal resistance. It also runs the target’s historical controller on the same weeks.
+
+Install EnergyPlus 24.1.0 (build `9d7789a3ac`), Git and Python 3.12. From the repository root:
+
+```sh
+python3.12 -m venv ../hot-sim-env
+. ../hot-sim-env/bin/activate
+python -m pip install -r simulation/requirements.txt
+export ENERGYPLUS_PATH=/path/to/EnergyPlus-24-1-0
+export PYTHONPATH="$ENERGYPLUS_PATH${PYTHONPATH:+:$PYTHONPATH}"
+python -m simulation.fetch ../hot-inputs
+python -m simulation.run all --source OF-00 --target RS-11 --seed 0 --calendar test \
+  --data ../hot-inputs --work ../hot-example
+```
+
+The input builder downloads public building templates and weather files with `curl` and verifies their checksums. Add `--plan` to the last command to inspect the training and evaluation steps. The simulation guide explains the task codes, how to reuse a trained policy on another target, change the evaluation weeks, or run the full matrix. [Simulation guide](simulation/README.md)
+
+## Reproduce the HOT follow-up study
+
+The follow-up study evaluated six source tasks on sixteen targets with ten training seeds per source. The repository includes every seed’s validation and test outcomes, each target’s historical reference, and the rules for selecting a source. A transfer succeeds when it uses less HVAC energy per square metre and causes no greater occupied discomfort than the historical controller.
+
+To regenerate the results offline, install the regular and bold TeX Gyre Pagella fonts and create a separate Python environment. [Plot fonts](https://ctan.org/pkg/tex-gyre)
 
 ```sh
 python3.12 -m venv .venv
@@ -13,32 +34,10 @@ python -m pip install -r requirements.txt
 python reproduce.py --out results
 ```
 
-The command writes 24 numbered CSV tables, nine PDF figures and a numerical summary. Tables run offline with `--tables-only`. Drawing all figures requires `pdflatex` with TikZ, `standalone` and either `newpx` or `pxfonts`. The two maps use four checksum-verified Natural Earth layers, downloaded with `curl` on first use. To reuse them offline, pass `--maps /path/to/natural-earth`.
+A fresh output directory contains 13 CSV tables at the published precision and three PDF figures, all computed from the follow-up study’s stored outcomes.
 
-| Exhibits | Source |
-| --- | --- |
-| Tables 3.1–3.4, A.1–A.2 and Figures 3.1–3.3, A.1 | Dataset inventory, geometry, schedules, weather descriptors and publication inputs |
-| Figures 3.4–3.5 | Redraws of the HOT paper’s weather-transfer scores and variability comparison |
-| Tables 3.5–3.6 and A.3–A.4 | Task design, observations, actions and PPO settings |
-| Tables 3.7, 3.9, A.5–A.13 and Figures 3.6–3.7, A.2 | Seed outcomes and target-specific historical controls |
-| Tables 3.8, A.14–A.15 | Task descriptors, similarity coefficients, validation-based source selection and test outcomes |
+Use `--tables-only` for CSV output or `--details` to retain the numerical summary and intermediate measurements. To check the table contents and vector drawings against a local copy of the thesis, install `PyMuPDF` and run `python -m analysis.verify /path/to/thesis.pdf results`. The simulation guide also covers re-auditing original five-minute trajectories and archive access.
 
-For the published matrix, 406 of 960 test deployments use less HVAC energy and have no greater occupied discomfort. On the ten targets outside the source set, HOT source selection meets both criteria in 82% of deployments and climate matching in 61%. The paired difference is 21 percentage points (95% interval 12.75–30.50).
+## Dataset and citation
 
-If you have the thesis PDF, install `PyMuPDF` in the analysis environment and run `python -m analysis.verify /path/to/thesis.pdf results`. This checks the numeric labels and their positions in all nine figures and all 864 printed entries in Tables A.5–A.10.
-
-## Read the measurements
-
-`data/outcomes.csv` contains one row per calendar, source, target and training seed. `data/historical.csv` contains one reference per calendar and target. Both store HVAC energy in kWh/m², summed squared temperature-band violations in person·°C²·h, and person-hours. Divide the second total by the third to obtain occupied discomfort in °C². Validation covers days 1–7 of each month and test covers days 15–21.
-
-Task codes give building (O = office, R = retail), climate (F = Fairbanks, S = Seattle), occupancy and envelope. For example, `OS-10` is the Seattle office with occupancy shifted two hours earlier and the default envelope. The suffix `01` selects higher thermal resistance and `11` applies both changes.
-
-`contexts.json` and `coefficients.json` supply the geometry, thermal, climate and function terms of the HOT score. The analysis recomputes source choices and checks them against `frozen-selection.csv`. Tied sources share weight equally. Confidence intervals resample the ten training seeds 20,000 times with a fixed random seed. Figure A.2 uses a Bonferroni adjustment across two outcomes for six predeclared transfers. The analysis also checks the 22 source–target pairs in `calendar-disagreements.csv`. CSV outputs retain the precision used for calculation.
-
-## Re-audit or rerun
-
-The simulation guide gives commands to remeasure an archived trajectory, reconstruct all 17 physical inputs from public templates and versioned settings, train a policy, and run the full matrix or a smaller experiment. Re-auditing original trajectories requires access to the archives. Fresh simulation uses public inputs. [Simulation guide](simulation/README.md)
-
-To recompute the four weather descriptors for all 192 weather files, run `python -m analysis.weather ../hot-weather`. The first run downloads the pinned EPWs. [HOT dataset](https://huggingface.co/datasets/BuildingBench/HOT/tree/06e84189e6c1e196f689dee26acd49533aa5f3af)
-
-The dataset and its generation pipeline accompany A. Berkes, Y. Bengio, D. Rolnick and D. Vakalis, *A HOT Dataset: 150,000 Buildings for HVAC Operations Transfer Research*, BuildSys 2025. [Paper](https://doi.org/10.1145/3736425.3770110) · [Dataset generator](https://github.com/RolnickLab/Building-Generator/tree/4afcdc5fed026f2bc5d5310f3c31be42fd23aafa)
+A. Berkes, Y. Bengio, D. Rolnick and D. Vakalis, *A HOT Dataset: 150,000 Buildings for HVAC Operations Transfer Research*, BuildSys 2025. [Paper](https://doi.org/10.1145/3736425.3770110) · [Dataset revision used here](https://huggingface.co/datasets/BuildingBench/HOT/tree/06e84189e6c1e196f689dee26acd49533aa5f3af) · [Dataset generator](https://github.com/RolnickLab/Building-Generator/tree/4afcdc5fed026f2bc5d5310f3c31be42fd23aafa)
